@@ -50,6 +50,7 @@ basic.forever(function () {
     PingUnit.Inches
     )
     if (Distance <= 12) {
+        music2()
         for (let index = 0; index < 4; index++) {
             images.createBigImage(`
                 # . . . . . . . . #
