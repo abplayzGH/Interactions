@@ -44,13 +44,12 @@ function music2 () {
     basic.pause(500)
 }
 basic.forever(function () {
-    let dis = 0
     Distance = sonar.ping(
     DigitalPin.P15,
     DigitalPin.P14,
     PingUnit.Inches
     )
-    if (dis <= 12) {
+    if (Distance <= 12) {
         for (let index = 0; index < 4; index++) {
             images.createBigImage(`
                 # . . . . . . . . #
