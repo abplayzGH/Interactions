@@ -1,4 +1,8 @@
+An interactive art display that when you approch it will start an animation and a rickroll.
+It also has lights the turn on or off depneding on the distance of the viewer.
 
+Currently adding rotary encoder support for a volume knob.
+Im going to make a game on it and if you fail you get rickrolled
 
 ## Edit this project ![Build status badge](https://github.com/abplayzgh/interactions/workflows/MakeCode/badge.svg)
 
