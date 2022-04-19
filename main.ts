@@ -1,4 +1,12 @@
-pins.onPulsed(DigitalPin.P0, PulseValue.Low, function () {
+pins.onPulsed(DigitalPin.P4, PulseValue.Low, function () {
+    if (input.runningTime() - time > 50) {
+        time = input.runningTime()
+        count = time + 1
+    }
+    time = input.runningTime()
+    serial.writeValue("press", 0)
+})
+pins.onPulsed(DigitalPin.P3, PulseValue.Low, function () {
     if (input.runningTime() - time > 50) {
         time = input.runningTime()
         count = time - 1
@@ -6,17 +14,9 @@ pins.onPulsed(DigitalPin.P0, PulseValue.Low, function () {
     time = input.runningTime()
     serial.writeValue("press", 0)
 })
-pins.onPulsed(DigitalPin.P2, PulseValue.Low, function () {
+pins.onPulsed(DigitalPin.P10, PulseValue.Low, function () {
     count = 0
     serial.writeValue("press", 1)
-})
-pins.onPulsed(DigitalPin.P1, PulseValue.Low, function () {
-    if (input.runningTime() - time > 50) {
-        time = input.runningTime()
-        count = time + 1
-    }
-    time = input.runningTime()
-    serial.writeValue("press", 0)
 })
 function music2 () {
     music.playTone(440, music.beat(BeatFraction.Half))
@@ -68,9 +68,9 @@ let time = 0
 let count = 0
 count = 0
 time = input.runningTime()
-pins.setPull(DigitalPin.P0, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P3, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P4, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P10, PinPullMode.PullUp)
 serial.redirectToUSB()
 basic.forever(function () {
     Distance = sonar.ping(
@@ -95,17 +95,17 @@ basic.forever(function () {
         }
     }
     if (Distance <= 6) {
-        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P0, 0)
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
     }
     if (Distance > 6 && Distance <= 12) {
-        pins.digitalWritePin(DigitalPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P0, 1)
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
     }
     if (Distance > 12 && Distance <= 24) {
-        pins.digitalWritePin(DigitalPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P0, 1)
         pins.digitalWritePin(DigitalPin.P1, 1)
         pins.digitalWritePin(DigitalPin.P2, 0)
     }
