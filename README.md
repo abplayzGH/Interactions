@@ -1,14 +1,4 @@
 
-> Open this page at [https://abplayzgh.github.io/interactions/](https://abplayzgh.github.io/interactions/)
-
-## Use as Extension
-
-This repository can be added as an **extension** in MakeCode.
-
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/abplayzgh/interactions** and import
 
 ## Edit this project ![Build status badge](https://github.com/abplayzgh/interactions/workflows/MakeCode/badge.svg)
 
