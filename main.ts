@@ -42,37 +42,46 @@ function music2 () {
     music.playTone(587, music.beat(BeatFraction.Half))
     basic.pause(500)
 }
-let f = 0
 let Distance = 0
 basic.showIcon(IconNames.Yes)
 basic.pause(500)
 basic.clearScreen()
 basic.forever(function () {
+    music2()
     Distance = sonar.ping(
     DigitalPin.P15,
     DigitalPin.P14,
     PingUnit.Inches
     )
-    if (Distance <= 12) {
-        f = 1
-    } else if (Distance <= 6) {
+    if (Distance <= 6) {
         pins.digitalWritePin(DigitalPin.P8, 0)
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
-    } else if (Distance > 6 && Distance <= 12) {
+    }
+    if (Distance > 6 && Distance <= 12) {
         pins.digitalWritePin(DigitalPin.P8, 1)
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
-    } else if (Distance > 12 && Distance <= 24) {
+    }
+    if (Distance > 12 && Distance <= 24) {
         pins.digitalWritePin(DigitalPin.P8, 1)
         pins.digitalWritePin(DigitalPin.P1, 1)
         pins.digitalWritePin(DigitalPin.P2, 0)
-    } else if (Distance > 24) {
+    }
+    if (Distance > 24) {
         pins.digitalWritePin(DigitalPin.P8, 1)
         pins.digitalWritePin(DigitalPin.P1, 1)
         pins.digitalWritePin(DigitalPin.P2, 1)
     }
 })
 control.inBackground(function () {
-	
+    while (true) {
+        images.createBigImage(`
+            # . . . . . . . . #
+            . # . . . . . . # .
+            . . # . . . . # . .
+            . . . # . . # . . .
+            . . . . # # . . . .
+            `).scrollImage(1, 200)
+    }
 })
